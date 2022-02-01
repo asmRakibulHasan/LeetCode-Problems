@@ -1,7 +1,9 @@
 class Solution {
+    
+public:
+
     int dp[22][2005];
     bool dp1[22][2005];
-public:
     
     int call(int idx,int now,vector<int>& nums,int target){
         if(idx==nums.size()) return now==target;
@@ -16,7 +18,8 @@ public:
     }
     
     int findTargetSumWays(vector<int>& nums, int target) {
-
+        std::ios::sync_with_stdio(false);
+        std::cin.tie(nullptr);
         return call(0,0,nums,target);
     }
 };
