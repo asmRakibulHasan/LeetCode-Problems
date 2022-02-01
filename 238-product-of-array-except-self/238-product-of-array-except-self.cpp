@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
         int n = nums.size();
-        vector<int>prefix(n+10),suffix(n+10),ans;
+        vector<int>suffix(n+10),ans;
         
         suffix[n+1]=1;
         
