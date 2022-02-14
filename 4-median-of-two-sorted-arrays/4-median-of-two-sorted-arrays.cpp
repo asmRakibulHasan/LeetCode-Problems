@@ -39,8 +39,6 @@ int find_num(vector<int>& v1, vector<int>& v2, int pos)
 
 
 double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-    cin.sync_with_stdio(0);
-    cin.tie(0);
     int l1 = nums1.size(), l2 = nums2.size();
 
     double ans;
