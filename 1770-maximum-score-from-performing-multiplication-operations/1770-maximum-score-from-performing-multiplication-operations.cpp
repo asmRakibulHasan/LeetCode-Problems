@@ -1,3 +1,5 @@
+struct _ { ios_base::Init i; _() { cin.sync_with_stdio(0); cin.tie(0); cout << fixed << setprecision(10); } } ___;
+
 class Solution {
 public:
     int m,n;
