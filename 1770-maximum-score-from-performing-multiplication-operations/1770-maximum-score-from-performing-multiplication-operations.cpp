@@ -1,23 +1,35 @@
 class Solution {
 public:
-    
+    int m,n;
+    vector<int> samne,pichone,multi;
     int dp[1005][1005];
     
-    int call(int idx,vector<int>& nums, vector<int>& M,int s){
-        if(idx==M.size()) return 0;
-        if(dp[idx][s]!=INT_MIN) return dp[idx][s];
+    int call(int idx1,int idx2){
+        //cout<<samne[0]<<' '<<pichone[0]<<' '<<n<<' '<<m<<endl;
+        if( idx1+idx2>=m) return 0;
         
-        int x = nums[s]*M[idx]+call(idx+1,nums,M,s+1);
-        int y = nums[(nums.size()-(idx-s)-1)]*M[idx]+call(idx+1,nums,M,s);
+        if(dp[idx1][idx2]!=INT_MIN) return dp[idx1][idx2];
         
-        return dp[idx][s]=max(x,y);
+        int now = idx1+idx2;
+        int x = samne[idx1]*multi[now]+call(idx1+1,idx2);
+        int y = pichone[idx2]*multi[now]+call(idx1,idx2+1);
+        
+        return dp[idx1][idx2]=max(x,y);
     }
     
-    int maximumScore(vector<int>& nums, vector<int>& M) {
+    
+    int maximumScore(vector<int>& nums, vector<int>& multipliers) {
+        samne = nums;
+        pichone = nums;
+        reverse(pichone.begin(),pichone.end());
+        multi = multipliers;
+        n = nums.size();
+        m = multi.size();
+        
         for(int i=0;i<1002;i++)
         for(int j=0;j<1002;j++)
             dp[i][j] = INT_MIN;
         
-        return call(0,nums,M,0);
+        return call(0,0);
     }
 };
