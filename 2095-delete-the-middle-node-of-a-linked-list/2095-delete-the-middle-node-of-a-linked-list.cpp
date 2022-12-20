@@ -38,8 +38,7 @@ public:
             siz++;
         }  
         
-        ListNode* temp = ptr;
-        temp = temp->next;
+        ListNode* temp = ptr->next;
         
         ptr->next = temp->next;
 
